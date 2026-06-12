@@ -1,21 +1,11 @@
-const cartItems = [
-    {
-        id: 1,
-        name: 'Peace Lily',
-        price: 18,
-        quantity: 1,
-        image: 'https://images.unsplash.com/photo-1593691509543-c55fb32e5cee',
-    },
-    {
-        id: 2,
-        name: 'Rosemary',
-        price: 15,
-        quantity: 1,
-        image: 'https://images.unsplash.com/photo-1515586000433-45406d8e6662',
-    },
-]
+import { useDispatch, useSelector } from "react-redux"
+import { decreaseQuantity, increaseQuantity, removeFromCart } from "../features/cart/cartSlice"
+import { useNavigate } from "react-router-dom"
 
 export default function CartPage() {
+    const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const cartItems = useSelector((state) => state.cart.items)
     const totalAmount = cartItems.reduce(
         (total, item) => total + item.price * item.quantity,
         0,
@@ -75,13 +65,13 @@ export default function CartPage() {
                                 </p>
 
                                 <div className="mb-4 flex items-center gap-4">
-                                    <button className="rounded bg-gray-100 px-3 py-2 font-bold text-gray-500">
+                                    <button onClick={() => dispatch(decreaseQuantity(item.id))} className="rounded bg-gray-100 px-3 py-2 font-bold text-gray-500">
                                         -
                                     </button>
 
                                     <span className="font-bold">{item.quantity}</span>
 
-                                    <button className="rounded bg-gray-100 px-3 py-2 font-bold text-gray-500">
+                                    <button onClick={() => dispatch(increaseQuantity(item.id))} className="rounded bg-gray-100 px-3 py-2 font-bold text-gray-500">
                                         +
                                     </button>
                                 </div>
@@ -90,7 +80,7 @@ export default function CartPage() {
                                     Total: ${item.price * item.quantity}
                                 </p>
 
-                                <button className="rounded-lg bg-red-500 px-5 py-3 font-semibold text-white hover:bg-red-600">
+                                <button onClick={() => dispatch(removeFromCart(item.id))} className="rounded-lg bg-red-500 px-5 py-3 font-semibold text-white hover:bg-red-600">
                                     Delete
                                 </button>
                             </div>
@@ -98,7 +88,7 @@ export default function CartPage() {
                     ))}
                 </div>
 
-                <button className="mt-14 w-72 rounded bg-green-600 py-4 text-2xl text-white hover:bg-green-700">
+                <button onClick={() => navigate('/product')} className="mt-14 w-72 rounded bg-green-600 py-4 text-2xl text-white hover:bg-green-700">
                     Continue Shopping
                 </button>
 
