@@ -1,18 +1,72 @@
-# React + Vite
+# Paradise Nursery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Paradise Nursery is a modern plant e-commerce web application built with React and Vite. The application allows users to browse plants, add products to a shopping cart, manage quantities, and view the total purchase amount. State management is handled using Redux Toolkit
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Add product to cart
+* Increase and decrease product quantity
+* Delete product from cart
+* Total cart amount calculation
+* Cart item count indicator
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* React
+* Vite
+* Tailwind CSS
+* React Router DOM
+* React Redux
+* Redux Toolkit
+* Lucide React
 
-Note: This will impact Vite dev & build performances.
+## Installation
 
-## Expanding the ESLint configuration
+```bash
+git clone https://github.com/username/repository-name.git
+cd repository-name
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```bash
+src/
+├── app/
+│   └── store.js
+├── features/
+│   └── cart/
+│       └── cartSlice.js
+├── pages/
+│   ├── HomePage.jsx
+│   ├── ProductPage.jsx
+│   └── CartPage.jsx
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+## Pages
+
+### Home Page
+
+The landing page introduces Paradise Nursery and provides users with an entry point to explore the available plant collection.
+
+### Product Listing Page
+
+Displays a collection of plants categorized for users to browse and add to their shopping cart..
+
+### Shopping Cart Page
+
+Allows users to:
+
+* View selected products
+* Update product quantities
+* Remove products from the cart
+* View the total cart amount
+* Continue shopping or proceed to checkout
+
+## Author
+
+Created by Wandika Hadi
