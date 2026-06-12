@@ -1,8 +1,8 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
-import ProductPage from './pages/ProductPage'
-import ShoppingCartPage from './pages/ShoppingCartPage'
+import ProductPage from './pages/ProductList'
+import ShoppingCartPage from './pages/CartItem'
 
 function AppRoutes() {
     return (

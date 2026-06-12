@@ -1,6 +1,6 @@
 import { ShoppingCart } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToCart } from '../features/cart/cartSlice'
+import { addItem } from '../features/cart/cartSlice'
 import { useNavigate } from 'react-router-dom'
 
 const products = [
@@ -119,7 +119,7 @@ export default function ProductPage() {
                                 </p>
 
                                 <button
-                                    onClick={() => dispatch(addToCart(product))}
+                                    onClick={() => dispatch(addItem(product))}
                                     disabled={isAdded}
                                     className={`px-6 py-3 text-white transition ${isAdded
                                         ? 'cursor-not-allowed bg-gray-400'

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { decreaseQuantity, increaseQuantity, removeFromCart } from "../features/cart/cartSlice"
+import { decreaseQuantity, increaseQuantity, removeItem } from "../features/cart/cartSlice"
 import { useNavigate } from "react-router-dom"
 
 export default function CartPage() {
@@ -80,7 +80,7 @@ export default function CartPage() {
                                     Total: ${item.price * item.quantity}
                                 </p>
 
-                                <button onClick={() => dispatch(removeFromCart(item.id))} className="rounded-lg bg-red-500 px-5 py-3 font-semibold text-white hover:bg-red-600">
+                                <button onClick={() => dispatch(removeItem(item.id))} className="rounded-lg bg-red-500 px-5 py-3 font-semibold text-white hover:bg-red-600">
                                     Delete
                                 </button>
                             </div>
